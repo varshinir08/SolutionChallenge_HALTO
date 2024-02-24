@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url('static/orderboard.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center; /* Center the background image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {  
+            max-width: 1000px;
+            background-color: #d9d9d9; /* Adding a slight transparency to the container */
+            padding: 100px;
+            border-radius: 40px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            margin-right: 200px; /* Reset margin */
+            margin-left: auto;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input,
+        button {
+            width: 100%; /* Make input and button full-width */
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 8px solid #ddd;
+            border-radius: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        button {
+            width: 60%;
+            background-color: #000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        .success-message {
+            color: green;
+            margin-top: 10px;
+            display: none;
+        }
+
+        #foodList {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .food-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .update-input {
+            width: 60px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .update-button {
+            background-color: #337ab7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 30%;
+        }
+
+        .update-button:hover {
+            background-color: #235a83;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>ORDER BOARD!!!</h2>
+
+        <form id="orderForm">
+            <label for="restaurantName">Restaurant Name:</label>
+            <input type="text" id="restaurantName" name="restaurantName" placeholder="Enter Restaurant Name" required>
+
+            <label for="foodType">Type of Food:</label>
+            <input type="text" id="foodType" name="foodType" placeholder="Type of Food" required>
+
+            <div id="foodList"></div>
+
+            <button type="button" onclick="addFood()">Add Food</button>
+
+            <button type="button" onclick="placeOrder()">Place Order</button>
+        </form>
+
+        <p id="successMessage" class="success-message">Order placed successfully!</p>
+    </div>
+
+    <script>
+        // Retrieve restaurant name from the dashboard.html page
+        var restaurantNameInput = document.getElementById('restaurantName');
+        var selectedRestaurantName = localStorage.getItem('selectedRestaurant');
+        restaurantNameInput.value = selectedRestaurantName || '';
+
+        function addFood() {
+            // Get the entered food type
+            var foodType = document.getElementById('foodType').value;
+            // If the input is not empty, add it to the food list
+            if (foodType.trim() !== "") {
+                var foodList = document.getElementById('foodList');
+                var foodItem = document.createElement('div');
+                foodItem.classList.add('food-item');
+
+                var listItem = document.createElement('p');
+                listItem.textContent = foodType;
+
+                var updateInput = document.createElement('input');
+                updateInput.classList.add('update-input');
+                updateInput.type = 'number';
+                updateInput.min = '1';
+                updateInput.max = '100'; /* Set max quantity to 100 */
+                updateInput.value = '1';
+                var updateButton = document.createElement('button');
+                updateButton.classList.add('update-button');
+                updateButton.type = 'button';
+                updateButton.textContent = '+';
+                updateButton.onclick = function () {
+                    // Update the quantity logic here if needed
+                    var currentQuantity = parseInt(updateInput.value);
+                    if (currentQuantity < 100) { /* Check if quantity is less than 100 */
+                        updateInput.value = currentQuantity + 1;
+                        console.log('Update button clicked for ' + foodType + ' with quantity ' + updateInput.value);
+                    }
+                };
+
+                foodItem.appendChild(listItem);
+                foodItem.appendChild(updateInput);
+                foodItem.appendChild(updateButton);
+
+                foodList.appendChild(foodItem);
+
+                // Clear the input for the next entry
+                document.getElementById('foodType').value = "";
+            }
+        }
+
+        function placeOrder() {
+
+
+            document.getElementById('orderForm').reset(); // Reset form fields
+            document.getElementById('successMessage').style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>
+

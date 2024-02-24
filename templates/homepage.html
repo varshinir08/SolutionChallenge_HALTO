@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMEPAGE</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9; /* Background color */
+        }
+        #header {
+            background-color: #333; /* Header background color */
+            color: #fff; /* Header text color */
+            padding: 20px;
+            text-align: center;
+        }
+        #logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        #mission {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #images {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .image {
+            max-width: 200px;
+            margin: 0 10px;
+        }
+        .order-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ffffff;
+      color: #867362;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+      text-decoration: none; /* Remove underline */
+    }
+    @keyframes bubbleEffect {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    }
+    .order-icon:hover {
+    animation: bubbleEffect 0.5s ease-in-out;
+}
+        #cta {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #footer {
+            background-color: #333; /* Footer background color */
+            color: #fff; /* Footer text color */
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        
+        <img id="logo" src="static\finallogo.jpg" alt="Zero Hunger Logo">
+        
+        <h1>Together, Let's End Hunger</h1>
+    </div>
+    <div id="mission">
+        <p>Welcome to our platform dedicated to eradicating hunger worldwide.</p>
+        <p>At Zero Hunger Initiative, we believe that no one should go to bed hungry. Join us in our mission to ensure that every person has access to nutritious food and a life free from hunger.</p>
+    </div>
+    <div id="images">
+        <img class="image" src="static/homepage 1.jpg" alt="Image 1">
+        <img class="image" src="static\homepage4.jpg" alt="Image 1">
+        <img class="image" src="static/homepage 2.jpg" alt="Image 2">
+        <img class="image" src="static/homepage 3.jpg" alt="Image 3">
+    
+    </div>
+    
+    <div id="cta">
+        <h3>How You Can Help</h3>
+        <center>
+        <p>Donate: Your contribution can make a real difference in the fight against hunger. Every donation helps feed families in need.</p>
+     <p>Volunteer: Get involved in local food drives, community kitchens, or outreach programs to directly impact your community.</p>
+        <p>Spread the Word: Share our message on social media, organize events, or start conversations about hunger in your circles.</p>
+        <p>"Spare a plate, make a difference support food donation to ensure no one goes to bed hungry tonight."</p>
+         </center>
+        <p>Together, we can achieve a world with Zero Hunger.</p>
+        <p>Donate a meal, share the joy your contribution can fill hungry hearts and nourish those in need."</p>
+        <button><a href="#">Get Involved Today</a></button>
+    </div>
+    <div id="footer">
+        <p>&copy; 2024 Zero Hunger Initiative. All rights reserved.</p>
+    </div>
+    <a href="{{ url_for('dashboard') }}" class="order-icon">&#10132;</a>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>End Hunger Now</title>
+  <style>
+    body { 
+      font-family: 'Playfair Display', serif;
+      margin: 0;
+      padding: 0;
+            background-color:#333; /* Header background color */
+      background-color: #333; /* Light blue */
+    }
+    header {
+      background: color #000000;; /* Sky blue */
+      color: #faf9f9;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .container {
+      max-width: 1400px;
+      /* margin: auto; */
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .restaurant {
+      width: calc(30% - 40px); /* Adjusting width for a 4-column layout */
+      margin-bottom: 30px;
+      border: 5px solid #ffffff; /* Light blue border color */
+      border-radius: 5px;
+      padding: 10px;
+      background-color: #ffffff;
+      box-sizing: border-box;
+      }
+  
+    .order-icon {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #f9f5f5;
+      color: #333;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+      text-decoration: none; /* Remove underline */
+    }
+    /* styles.css */
+
+    @keyframes bubbleEffect {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    }
+
+.restaurant:hover {
+    animation: bubbleEffect 0.5s ease-in-out;
+}
+.order-icon:hover {
+    animation: bubbleEffect 0.5s ease-in-out;
+}
+
+    .restaurant h2 {
+      margin-top: 0;
+    }
+    .availability {
+      margin-top: 10px;
+    }
+    .food-type {
+      margin-top: 10px;
+    }
+    .food-image {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 10px auto;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    }
+    #map {
+   height: 400px; /* Adjust the height as needed */
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>"Together We Can: Ending Hunger One Meal at a Time!!!"</h1>
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp4Y1sWKTSLIUtY9bXO7qFBZkUsWiDJRc"></script>
+<script>
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: { lat: 40.7128, lng: -74.0060 }, // Replace with your actual coordinates
+      zoom: 12, // Replace with your desired zoom level
+    });
+  }
+</script> -->
+  </header>
+</script>
+  <div class="container">
+    <div class="restaurant">
+    <center>
+      <h2>ZAITOON</h2>
+    </center>
+      <img src="{{ url_for('static', filename='food6.jpg') }}" alt="food 1" class="food-image">
+      <p class="availability">Food Availability: Available</p>
+      <p class="food-type">Type of Food: Chicken briyani,Mutton briyani,</p>
+    </div>
+    <div class="restaurant">
+       <center>
+      <h2>FOODAHOLIC</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food8.jpg') }}" alt="Food 2" class="food-image">
+      <p class="availability">Food Availability: Not Available</p>
+      <p class="food-type">Type of Food: Fried rice,Egg fried rice,Chilly chicken</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>GEETHAM VEG</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food7.jpg') }}" alt="Food 3" class="food-image">
+      <p class="availability">Food Availability: Available</p>
+      <p class="food-type">Type of Food: Dosa,Masala Dosa,Rava Dosa,Ghee Dosa</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>PUNJABI DHABA</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food4.jpg') }}" alt="Food 4" class="food-image">
+      <p class="availability">Food Availability: Available</p>
+      <p class="food-type">Type of Food: Butter naan,Garlic naan,Tandoori naan</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>VASANTHA BHAVAN</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food5.jpg') }}" alt="Food 5" class="food-image">
+      <p class="availability">Food Availability: Not Available</p>
+      <p class="food-type">Type of Food:Veg meals,Mini Tiffin,Veg thali</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>GEM RESTAURANT</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food3.jpg') }}" alt="Food 6" class="food-image">
+      <p class="availability">Food Availability: Available</p>
+      <p class="food-type">Type of Food: Parotta,Bun parotta,Nool parotta</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>A2B</h2>
+      </center>
+      <img src="{{ url_for('static', filename='FOOD9.jpg') }}" alt="Food 7" class="food-image">
+      <p class="availability">Food Availability: Available</p>
+      <p class="food-type">Type of Food: Mini idly,Sambar idly,Podi idly,Chilli idli</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>HOTEL GOWRI SANKAR</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food11.jpg') }}" alt="Food 8" class="food-image">
+      <p class="availability">Food Availability: Not Available</p>
+      <p class="food-type">Type of Food: Curd rice,Lemon rice,Sambar Rice</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>OVEN STORY PIZZA</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food13.jpg') }}" alt="Food 9" class="food-image">
+      <p class="availability">Food Availability: Available</p>
+      <p class="food-type">Type of Food: Margherita pizza,Tandoori pizza,Veg Pizza,Smoked chicken Pizza</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>ANJAPPAR</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food12.jpg') }}" alt="Food 10" class="food-image">
+      <p class="availability">Food Availability: Available</p>
+      <p class="food-type">Type of Food: Lemon rice,Tomato rice,Tamarind rice,Coriander rice,Pepper rice</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>CHINESE WOK</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food14.jpg') }}" alt="Food 11" class="food-image">
+      <p class="availability">Food Availability: Not Available</p>
+      <p class="food-type">Type of Food: Chicken noodles,Veg noodles,Mushroom noodles,Garlic noodles</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>SARAVANA BHAVAN</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food15.jpg') }}" alt="Food 12" class="food-image">
+      <p class="availability">Food Availability: Available</p>
+      <p class="food-type">Type of Food: Idiyappam,Aapam,Egg curry,Puttu,Pongal</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>ARABIAN HUT</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food17.jpg') }}" alt="Food 13" class="food-image">
+      <p class="availability">Food Availability: Available</p>
+      <p class="food-type">Type of Food: Mutton kabsa,Chicken kabsa,Mandi biriyani,Garlic bread</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>THE MARINA</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food18.jpg') }}" alt="Food 14" class="food-image">
+      <p class="availability">Food Availability: Not Available</p>
+      <p class="food-type">Type of Food: Fish Curry,Crab curry,Seafood Platter</p>
+    </div>
+    <div class="restaurant">
+      <center>
+      <h2>COPPER</h2>
+      </center>
+      <img src="{{ url_for('static', filename='food19.jpg') }}" alt="Food 15" class="food-image">
+      <p class="availability">Food Availability: Available</p>
+      <p class="food-type">Type of Food: Chickeen tikka Masala,Jasmine rice,Butter chicken,Steamed rice,Chicken steaks</p>
+    </div>
+</div>
+  <a href="{{ url_for('order') }}" class="order-icon">&#10132;</a>
+  <!-- <div id="map"></div> -->
+</body>
+</html>
